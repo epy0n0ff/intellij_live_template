@@ -1,0 +1,30 @@
+<templateSet group="Chef">
+  <template name="ChefPackage" value="package '$PACKGE$' do&#10;  version '$VERSION$'&#10;  action :install&#10;end" description="ChefPackage" toReformat="false" toShortenFQNames="true">
+    <variable name="PACKGE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VERSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="ChefRemoteFile" value="remote_file &quot;$TARGET$&quot; do&#10;  source &quot;$URL$&quot;&#10;  checksum '$SHA256$'&#10;  action :create&#10;end" description="ChefRemoteFile" toReformat="false" toShortenFQNames="true">
+    <variable name="TARGET" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="URL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SHA256" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="ChefBash" value="bash '$DESCRIPTION$' do&#10;  code &lt;&lt;-EOH&#10;    $COMMAND$&#10;  EOH&#10;end" description="ChefBash" toReformat="false" toShortenFQNames="true">
+    <variable name="DESCRIPTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="COMMAND" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="ChefPackages" value="%w[&#10;  $PACKAGES$ &#10;].each do |pkg|&#10;  package pkg do&#10;    action :install&#10;  end&#10;end" description="ChefPackages" toReformat="false" toShortenFQNames="true">
+    <variable name="PACKAGES" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+</templateSet>

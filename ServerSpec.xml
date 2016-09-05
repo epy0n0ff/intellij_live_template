@@ -1,0 +1,72 @@
+<templateSet group="ServerSpec">
+  <template name="SspecDir" value="describe file('$DIR$') do&#10;  it { should exist }&#10;  it { should be_directory }&#10;  it { should be_owned_by '$OWNER$' }&#10;  it { should be_grouped_into '$GROUP$' }&#10;  it { should be_mode '$PERMISSION$' }&#10;  it { should be_readable.by('owner') }&#10;  it { should be_readable.by('group') }&#10;  it { should be_readable.by('others') }&#10;  it { should be_readable.by_user('$USER$') }&#10;  it { should be_writable.by('owner') }&#10;  it { should be_writable.by('group') }&#10;  it { should be_writable.by('others') }&#10;  it { should be_writable.by_user('$USER$') }&#10;  it { should be_executable.by('owner') }&#10;  it { should be_executable.by('group') }&#10;  it { should be_executable.by('others') }&#10;  it { should be_executable.by_user('$USER$') }&#10;end" description="SspecDir" toReformat="false" toShortenFQNames="true">
+    <variable name="DIR" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="OWNER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="GROUP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PERMISSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="USER" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="SspecPackage" value="describe package('$PACKAGE$') do&#10;  it { should be_installed }&#10;  it { should be_installed.with_version('$VERSION$') }&#10;end" description="SspecPackage" toReformat="false" toShortenFQNames="true">
+    <variable name="PACKAGE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VERSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="SspecFile" value="describe file('$FILE$') do&#10;  it { should exist }&#10;  it { should be_file }&#10;  it { should be_symlink }&#10;  it { should be_linked_to '$LINK$' }&#10;  its(:sha256sum) { should eq '$SHA256SUM$' }&#10;  it { should be_owned_by '$OWNER$' }&#10;  it { should be_grouped_into '$GROUP$' }&#10;  it { should be_mode '$PERMISSION$' }&#10;  it { should be_readable.by('owner') }&#10;  it { should be_readable.by('group') }&#10;  it { should be_readable.by('others') }&#10;  it { should be_readable.by_user('$USER$') }&#10;  it { should be_writable.by('owner') }&#10;  it { should be_writable.by('group') }&#10;  it { should be_writable.by('others') }&#10;  it { should be_writable.by_user('$USER$') }&#10;  it { should be_executable.by('owner') }&#10;  it { should be_executable.by('group') }&#10;  it { should be_executable.by('others') }&#10;  it { should be_executable.by_user('$USER$') }&#10;  its(:content) { should match /$CONTAIN$/ }&#10;end" description="SspecFile" toReformat="false" toShortenFQNames="true">
+    <variable name="FILE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="LINK" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SHA256SUM" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="OWNER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="GROUP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PERMISSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="USER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONTAIN" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="SspecGroup" value="describe group('$GROUP$') do&#10;  it { should exist }&#10;  it { should have_gid $GID$ }&#10;end" description="SspecGroup" toReformat="false" toShortenFQNames="true">
+    <variable name="GROUP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="GID" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="SspecUser" value="describe user('$USER$') do&#10;  it { should exist }&#10;  it { should have_uid $UID$ }&#10;  it { should belong_to_group $GROUP$ }&#10;end" description="SspecUser" toReformat="false" toShortenFQNames="true">
+    <variable name="USER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="UID" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="GROUP" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="SspecPackages" value="%w{$PACKAGES$}.each do |pkg|&#10;  describe package(pkg) do&#10;    it { should be_installed }&#10;  end&#10;end" description="SspecPackages" toReformat="false" toShortenFQNames="true">
+    <variable name="PACKAGES" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="SspecPort" value="describe port($PORT$) do&#10;  it { should be_listening }&#10;end&#10;" description="SspecPort" toReformat="false" toShortenFQNames="true">
+    <variable name="PORT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="SspecService" value="describe service('$SERVICE$') do&#10;  it { should be_enabled }&#10;  it { should be_running }&#10;  it { should be_running.under('systemd') }&#10;end" description="SspecService" toReformat="false" toShortenFQNames="true">
+    <variable name="SERVICE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="SspecProcess" value="describe process(&quot;$PROCESS$&quot;) do&#10;  its(:user) { should eq &quot;$PROCESS$&quot; }&#10;  its(:args) { should match /$ARGS$/ }&#10;end" description="SspecProcess" toReformat="false" toShortenFQNames="true">
+    <variable name="PROCESS" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ARGS" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+</templateSet>

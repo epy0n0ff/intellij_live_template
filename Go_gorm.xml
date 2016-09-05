@@ -1,0 +1,12 @@
+<templateSet group="Go/gorm">
+  <template name="gormpk" value="`gorm:&quot;primary_key&quot;`" description="`gorm:&quot;primary_key&quot;`" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="GO" value="true" />
+    </context>
+  </template>
+  <template name="gormtype" value="`gorm:&quot;type:varchar()&quot;``" description="`gorm:&quot;type:varchar()&quot;`" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="GO" value="true" />
+    </context>
+  </template>
+</templateSet>

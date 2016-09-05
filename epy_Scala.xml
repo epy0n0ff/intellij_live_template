@@ -1,0 +1,46 @@
+<templateSet group="epy/Scala">
+  <template name="testinter" value="&quot;$TARGET$&quot; should &quot;$RESULT$&quot; in {&#10;  intercept[$THROWABLE$] {&#10;  }&#10;} " description="FlatSpec intercept test" toReformat="false" toShortenFQNames="true">
+    <variable name="TARGET" expression="capitalize(String)" defaultValue="it" alwaysStopAt="false" />
+    <variable name="RESULT" expression="capitalize(String)" defaultValue="returns something" alwaysStopAt="false" />
+    <variable name="THROWABLE" expression="classNameComplete()" defaultValue="Throwable" alwaysStopAt="true" />
+    <context>
+      <option name="SCALA" value="true" />
+      <option name="SCALA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="testassert" value="&quot;$TARGET$&quot; should &quot;$RESULT$&quot; in {&#10;  assert($EXP$)&#10;}" description="FlatSpec assert test" toReformat="false" toShortenFQNames="true">
+    <variable name="TARGET" expression="capitalize(String)" defaultValue="it" alwaysStopAt="false" />
+    <variable name="RESULT" expression="capitalize(String)" defaultValue="returns" alwaysStopAt="false" />
+    <variable name="EXP" expression="" defaultValue="0 == 0" alwaysStopAt="true" />
+    <context>
+      <option name="SCALA" value="true" />
+      <option name="SCALA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="surroundAssertNull" value="assert($SELECTION$ == null)$END$" description="surround with assert null" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SCALA" value="true" />
+      <option name="SCALA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="surroundAssert" value="assert($SELECTION$)$END$" description="surround with assert" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SCALA" value="true" />
+      <option name="SCALA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="surroundAssertpathContains" value="assert($SELECTION$.contains(&quot;$PATH$&quot;))$END$" description="surround with assert" toReformat="false" toShortenFQNames="true">
+    <variable name="PATH" expression="clipboard()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="SCALA" value="true" />
+      <option name="SCALA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="surroundAssertEquals" value="assert($SELECTION$ == &quot;$PATH$&quot;)$END$" description="surround with assert" toReformat="false" toShortenFQNames="true">
+    <variable name="PATH" expression="clipboard()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="SCALA" value="true" />
+      <option name="SCALA_CODE" value="true" />
+    </context>
+  </template>
+</templateSet>
