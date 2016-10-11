@@ -27,4 +27,30 @@
       <option name="RUBY" value="true" />
     </context>
   </template>
+  <template name="ChefTemplate" value="template &quot;$TARGET_FILE_PATH$&quot; do&#10;  source '$SOURCE_TEMPLATE_FILE_PATH$'&#10;  owner $FILE_OWNER$&#10;  group $FILE_GROUP$&#10;  mode '0664'&#10;end" description="ChefTemplate" toReformat="false" toShortenFQNames="true">
+    <variable name="TARGET_FILE_PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SOURCE_TEMPLATE_FILE_PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FILE_OWNER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FILE_GROUP" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="ChefCookbookFile" value="cookbook_file &quot;$TARGET_FILE_PATH$&quot; do&#10;  source '$SOURCE_FILE_PATH$'&#10;  owner $FILE_OWNER$&#10;  group $FILE_GROUP$&#10;  mode '0664'&#10;end" description="ChefCookbookFile" toReformat="false" toShortenFQNames="true">
+    <variable name="TARGET_FILE_PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SOURCE_FILE_PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FILE_OWNER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FILE_GROUP" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
+  <template name="ChefErbVariable" value="&lt;%= node[:$FIRST_KEY$][:$SECOND_KEY$] %&gt;" description="ChefErbVariable" toReformat="false" toShortenFQNames="true">
+    <variable name="FIRST_KEY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="SECOND_KEY" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="RUBY" value="true" />
+      <option name="RHTML" value="true" />
+    </context>
+  </template>
 </templateSet>
